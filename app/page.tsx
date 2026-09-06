@@ -37,6 +37,7 @@ export default function Home(){
         logo:`${siteUrl}/brand/navoraa-logo.png`,
         email:"lead@navoraa.com.au",
         description:"Perth-based Microsoft cloud, enterprise AI, security and platform engineering advisory and delivery for Australian enterprise and government.",
+        founder:{"@id":`${siteUrl}/#amit-kumar`},
         address:{"@type":"PostalAddress",addressLocality:"Perth",addressRegion:"WA",addressCountry:"AU"},
         areaServed:[{"@type":"AdministrativeArea",name:"Western Australia"},{"@type":"Country",name:"Australia"}],
         knowsAbout:["Microsoft Azure","Microsoft Cloud Adoption Framework","Azure Well-Architected Framework","Microsoft 365","Microsoft Copilot","Enterprise AI","Platform engineering","Cloud security","FinOps"],
@@ -50,6 +51,7 @@ export default function Home(){
           }))
         }
       },
+      {"@type":"Person","@id":`${siteUrl}/#amit-kumar`,name:"Amit Kumar",jobTitle:"Founder & Principal Consultant",worksFor:{"@id":`${siteUrl}/#organization`},description:"Enterprise cloud, AI, infrastructure and security leader with more than 25 years of experience across government, healthcare and energy.",knowsAbout:["Enterprise architecture","Microsoft Azure","Amazon Web Services","Enterprise AI","Microsoft 365","Cloud security","Platform engineering","DevSecOps","Hybrid infrastructure"]},
       {"@type":"WebSite","@id":`${siteUrl}/#website`,url:`${siteUrl}/`,name:"Navoraa",inLanguage:"en-AU",publisher:{"@id":`${siteUrl}/#organization`}},
       {"@type":"WebPage","@id":`${siteUrl}/#webpage`,url:`${siteUrl}/`,name:"Microsoft Cloud, Azure and Enterprise AI Consulting Perth",description:"Independent cloud, AI, security and platform engineering consulting for Australian enterprise and government.",isPartOf:{"@id":`${siteUrl}/#website`},about:{"@id":`${siteUrl}/#organization`},inLanguage:"en-AU"},
       {"@type":"FAQPage","@id":`${siteUrl}/#faq`,mainEntity:faqs.map(item=>({"@type":"Question",name:item.question,acceptedAnswer:{"@type":"Answer",text:item.answer}}))}
@@ -59,7 +61,7 @@ export default function Home(){
   <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData).replace(/</g,"\\u003c")}} />
   <header className="site-header">
     <a href="#top" className="brand" aria-label="Navoraa home"><img className="brand-logo" src={`${basePath}/brand/navoraa-logo.png`} alt="Navoraa" /></a>
-    <nav aria-label="Primary navigation"><a href="#services">Services</a><a href="#approach">Approach</a><a href="#partnerships">Partnerships</a><a href="#why">Why Navoraa</a><a href="#questions">Questions</a></nav>
+    <nav aria-label="Primary navigation"><a href="#services">Services</a><a href="#approach">Approach</a><a href="#partnerships">Partnerships</a><a href="#about">About</a><a href="#why">Why Navoraa</a></nav>
     <a className="nav-cta" href="#contact">Start a conversation <span>↗</span></a>
   </header>
 
@@ -93,6 +95,11 @@ export default function Home(){
     </article>
   </section>
 
+  <section className="about section-pad" id="about">
+    <div className="about-profile" aria-hidden="true"><span>AK</span><small>Founder<br/>Principal Consultant</small></div>
+    <div className="about-copy"><p className="section-kicker">About the founder</p><h2>Experience that connects strategy with delivery.</h2><p className="about-lead">Amit Kumar is an enterprise cloud, AI, infrastructure and security leader with more than 25 years of experience helping organisations make complex technology decisions and turn them into dependable outcomes.</p><p>His experience spans government, healthcare and energy, with leadership across enterprise architecture, Microsoft Azure, AWS, Microsoft 365, hybrid infrastructure, security, platform engineering, DevSecOps and enterprise AI. Amit combines executive advisory with hands-on delivery credibility—from cloud strategy and secure landing zones through to integration platforms, AI foundations, governance and operationalisation.</p><div className="about-highlights"><article><strong>25+</strong><span>Years in enterprise technology</span></article><article><strong>3</strong><span>Government, healthcare and energy sectors</span></article><article><strong>End-to-end</strong><span>Strategy, architecture, delivery and governance</span></article></div><p className="about-credentials">Microsoft Certified: Azure Solutions Architect Expert · Microsoft Certified Trainer · MBA in Information Technology</p></div>
+  </section>
+
   <section className="why section-pad" id="why"><div className="why-panel"><div><p className="section-kicker light">Why Navoraa</p><h2>Senior thinking.<br/>Practical execution.</h2></div><div className="why-points"><article><span>01</span><div><h3>Independent by design</h3><p>Recommendations shaped by client outcomes, risk and context—not vendor-led implementation pressure.</p></div></article><article><span>02</span><div><h3>Enterprise depth</h3><p>Architecture, cloud, infrastructure, security and AI treated as one connected operating system.</p></div></article><article><span>03</span><div><h3>Built to transfer</h3><p>Reusable patterns, clear decisions and capability uplift so your teams can operate with confidence.</p></div></article></div></div></section>
 
   <section className="faq section-pad" id="questions">
@@ -114,5 +121,5 @@ export default function Home(){
     </form>
   </section>
 
-  <footer><a href="#top" className="brand" aria-label="Navoraa home"><img className="brand-logo footer-logo" src={`${basePath}/brand/navoraa-logo.png`} alt="Navoraa" /></a><p>Enterprise architecture for cloud, AI and secure platforms.</p><div><a href="#services">Services</a><a href="#approach">Approach</a><a href="#partnerships">Partnerships</a><a href="#why">Why Navoraa</a><a href="#questions">Questions</a></div><small>© 2026 Navoraa. Perth, Western Australia.</small></footer>
+  <footer><a href="#top" className="brand" aria-label="Navoraa home"><img className="brand-logo footer-logo" src={`${basePath}/brand/navoraa-logo.png`} alt="Navoraa" /></a><p>Enterprise architecture for cloud, AI and secure platforms.</p><div><a href="#services">Services</a><a href="#approach">Approach</a><a href="#partnerships">Partnerships</a><a href="#about">About</a><a href="#why">Why Navoraa</a><a href="#questions">Questions</a></div><small>© 2026 Navoraa. Perth, Western Australia.</small></footer>
 </main>}
