@@ -14,13 +14,52 @@ const stages = [
   ["04","Govern","Embed ownership, assurance, observability and continuous improvement."],
 ];
 
+const faqs = [
+  { question:"What does a Microsoft CAF and WAF assessment include?", answer:"Navoraa assesses cloud adoption maturity across strategy, planning, readiness, adoption, governance and management using the Microsoft Cloud Adoption Framework. We also review workload architecture against the Azure Well-Architected Framework pillars of reliability, security, cost optimisation, operational excellence and performance efficiency, then provide prioritised executive and technical actions." },
+  { question:"How does Navoraa support secure enterprise AI adoption?", answer:"We connect AI use-case priorities with platform architecture, identity, private connectivity, data controls, responsible AI governance, evaluation, monitoring and lifecycle operations. This gives teams a governed path from experimentation to repeatable production delivery." },
+  { question:"Can Navoraa assess Microsoft 365 technical health and organisational maturity?", answer:"Yes. The assessment covers Microsoft 365 architecture and configuration, identity, security, Purview, compliance, collaboration, permissions and operations, together with ownership, skills, governance and adoption maturity. The output is a practical improvement and Copilot adoption roadmap." },
+  { question:"What is the difference between cloud strategy, a landing zone and platform engineering?", answer:"Cloud strategy defines the business outcomes, investment priorities and operating model. A landing zone provides the secure Azure foundation and guardrails. Platform engineering turns those foundations into reusable, automated services that help teams onboard and deliver workloads consistently." },
+  { question:"Does Navoraa work with enterprise and government organisations?", answer:"Yes. Navoraa supports enterprise and public-sector leaders with independent architecture, assessment and delivery across cloud, AI, security, Microsoft 365 and platform operations, including environments with demanding governance and risk requirements." },
+  { question:"Where does Navoraa provide cloud and AI consulting services?", answer:"Navoraa is based in Perth, Western Australia and works with organisations across WA and Australia. Engagements can combine executive advisory, architecture assurance and hands-on platform delivery." },
+];
+
 export default function Home(){
   const basePath=process.env.NEXT_PUBLIC_BASE_PATH||"";
-  const siteUrl=process.env.NEXT_PUBLIC_SITE_URL||"https://navoraa.searchamit-kumar.chatgpt.site";
+  const siteUrl=(process.env.NEXT_PUBLIC_SITE_URL||"https://navoraa.github.io/navoraa-website").replace(/\/$/,"");
+  const structuredData = {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":`${siteUrl}/#organization`,
+        name:"Navoraa",
+        url:`${siteUrl}/`,
+        logo:`${siteUrl}/brand/navoraa-logo.png`,
+        email:"lead@navoraa.com.au",
+        description:"Perth-based Microsoft cloud, enterprise AI, security and platform engineering advisory and delivery for Australian enterprise and government.",
+        address:{"@type":"PostalAddress",addressLocality:"Perth",addressRegion:"WA",addressCountry:"AU"},
+        areaServed:[{"@type":"AdministrativeArea",name:"Western Australia"},{"@type":"Country",name:"Australia"}],
+        knowsAbout:["Microsoft Azure","Microsoft Cloud Adoption Framework","Azure Well-Architected Framework","Microsoft 365","Microsoft Copilot","Enterprise AI","Platform engineering","Cloud security","FinOps"],
+        hasOfferCatalog:{
+          "@type":"OfferCatalog",
+          name:"Cloud, AI, security and platform engineering services",
+          itemListElement:services.map((service,index)=>({
+            "@type":"Offer",
+            position:index+1,
+            itemOffered:{"@type":"Service",name:service.title,description:service.summary,provider:{"@id":`${siteUrl}/#organization`},areaServed:"Australia"}
+          }))
+        }
+      },
+      {"@type":"WebSite","@id":`${siteUrl}/#website`,url:`${siteUrl}/`,name:"Navoraa",inLanguage:"en-AU",publisher:{"@id":`${siteUrl}/#organization`}},
+      {"@type":"WebPage","@id":`${siteUrl}/#webpage`,url:`${siteUrl}/`,name:"Microsoft Cloud, Azure and Enterprise AI Consulting Perth",description:"Independent cloud, AI, security and platform engineering consulting for Australian enterprise and government.",isPartOf:{"@id":`${siteUrl}/#website`},about:{"@id":`${siteUrl}/#organization`},inLanguage:"en-AU"},
+      {"@type":"FAQPage","@id":`${siteUrl}/#faq`,mainEntity:faqs.map(item=>({"@type":"Question",name:item.question,acceptedAnswer:{"@type":"Answer",text:item.answer}}))}
+    ]
+  };
   return <main>
+  <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData).replace(/</g,"\\u003c")}} />
   <header className="site-header">
     <a href="#top" className="brand" aria-label="Navoraa home"><img className="brand-logo" src={`${basePath}/brand/navoraa-logo.png`} alt="Navoraa" /></a>
-    <nav aria-label="Primary navigation"><a href="#services">Services</a><a href="#approach">Approach</a><a href="#partnerships">Partnerships</a><a href="#why">Why Navoraa</a></nav>
+    <nav aria-label="Primary navigation"><a href="#services">Services</a><a href="#approach">Approach</a><a href="#partnerships">Partnerships</a><a href="#why">Why Navoraa</a><a href="#questions">Questions</a></nav>
     <a className="nav-cta" href="#contact">Start a conversation <span>↗</span></a>
   </header>
 
@@ -56,6 +95,11 @@ export default function Home(){
 
   <section className="why section-pad" id="why"><div className="why-panel"><div><p className="section-kicker light">Why Navoraa</p><h2>Senior thinking.<br/>Practical execution.</h2></div><div className="why-points"><article><span>01</span><div><h3>Independent by design</h3><p>Recommendations shaped by client outcomes, risk and context—not vendor-led implementation pressure.</p></div></article><article><span>02</span><div><h3>Enterprise depth</h3><p>Architecture, cloud, infrastructure, security and AI treated as one connected operating system.</p></div></article><article><span>03</span><div><h3>Built to transfer</h3><p>Reusable patterns, clear decisions and capability uplift so your teams can operate with confidence.</p></div></article></div></div></section>
 
+  <section className="faq section-pad" id="questions">
+    <div className="faq-intro"><p className="section-kicker">Common client questions</p><h2>Clear answers for your next cloud or AI decision.</h2><p>Concise guidance on the assessments, foundations and adoption services Navoraa provides across Perth, WA and Australia.</p></div>
+    <div className="faq-list">{faqs.map((item,index)=><details key={item.question} open={index===0}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div>
+  </section>
+
   <section className="contact section-pad" id="contact">
     <div className="contact-copy"><p className="section-kicker">Start a conversation</p><h2>Make the next cloud or AI decision with clarity.</h2><p>Tell us briefly what you are working through. We will review your enquiry and respond directly.</p><a href="mailto:lead@navoraa.com.au">lead@navoraa.com.au <span>↗</span></a></div>
     <form className="contact-form" action="https://formsubmit.co/lead@navoraa.com.au" method="POST">
@@ -70,5 +114,5 @@ export default function Home(){
     </form>
   </section>
 
-  <footer><a href="#top" className="brand" aria-label="Navoraa home"><img className="brand-logo footer-logo" src={`${basePath}/brand/navoraa-logo.png`} alt="Navoraa" /></a><p>Enterprise architecture for cloud, AI and secure platforms.</p><div><a href="#services">Services</a><a href="#approach">Approach</a><a href="#partnerships">Partnerships</a><a href="#why">Why Navoraa</a></div><small>© 2026 Navoraa. Perth, Western Australia.</small></footer>
+  <footer><a href="#top" className="brand" aria-label="Navoraa home"><img className="brand-logo footer-logo" src={`${basePath}/brand/navoraa-logo.png`} alt="Navoraa" /></a><p>Enterprise architecture for cloud, AI and secure platforms.</p><div><a href="#services">Services</a><a href="#approach">Approach</a><a href="#partnerships">Partnerships</a><a href="#why">Why Navoraa</a><a href="#questions">Questions</a></div><small>© 2026 Navoraa. Perth, Western Australia.</small></footer>
 </main>}

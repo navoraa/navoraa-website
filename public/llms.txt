@@ -1,0 +1,26 @@
+# Navoraa
+
+Navoraa is a Perth, Western Australia-based cloud, enterprise AI, security and platform engineering consultancy serving Australian enterprises and government organisations.
+
+## Core services
+
+- Cloud and AI strategy and enterprise architecture
+- Microsoft Cloud Adoption Framework (CAF) and Azure Well-Architected Framework (WAF) assessments
+- Secure Azure landing zones and cloud foundations
+- Enterprise AI platform foundations and AI enablement
+- Microsoft 365 platform assessment and Microsoft Copilot adoption
+- Platform engineering, DevSecOps and cloud operations
+- FinOps, resilience, security posture and cloud optimisation
+
+## Approach
+
+Navoraa connects business intent, architecture, governance and hands-on delivery. Engagements are designed to create clear decisions, secure reusable platforms, accountable operating models and measurable outcomes.
+
+## Service area
+
+Perth and Western Australia, with services available to organisations across Australia.
+
+## Contact
+
+Email: lead@navoraa.com.au
+Website: https://navoraa.github.io/navoraa-website/
