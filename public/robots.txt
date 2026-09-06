@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /thank-you/
 
-Sitemap: https://navoraa.github.io/navoraa-website/sitemap.xml
+Sitemap: https://navoraa.com.au/sitemap.xml

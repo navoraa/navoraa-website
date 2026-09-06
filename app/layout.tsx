@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://navoraa.github.io/navoraa-website").replace(/\/$/, "");
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://navoraa.com.au").replace(/\/$/, "");
 const description = "Perth-based Microsoft cloud, Azure, enterprise AI, Microsoft 365, platform engineering, security and FinOps advisory and delivery for Australian enterprise and government.";
 
 export const metadata: Metadata = {

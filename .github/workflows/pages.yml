@@ -34,8 +34,8 @@ jobs:
       - name: Build static website
         run: npm run build:pages
         env:
-          NEXT_PUBLIC_BASE_PATH: /navoraa-website
-          NEXT_PUBLIC_SITE_URL: https://navoraa.github.io/navoraa-website
+          NEXT_PUBLIC_BASE_PATH: ""
+          NEXT_PUBLIC_SITE_URL: https://navoraa.com.au
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:

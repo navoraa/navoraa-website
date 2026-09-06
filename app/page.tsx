@@ -25,7 +25,7 @@ const faqs = [
 
 export default function Home(){
   const basePath=process.env.NEXT_PUBLIC_BASE_PATH||"";
-  const siteUrl=(process.env.NEXT_PUBLIC_SITE_URL||"https://navoraa.github.io/navoraa-website").replace(/\/$/,"");
+  const siteUrl=(process.env.NEXT_PUBLIC_SITE_URL||"https://navoraa.com.au").replace(/\/$/,"");
   const structuredData = {
     "@context":"https://schema.org",
     "@graph":[
